@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+\setstretch{1.2}
+
+\title{
+	\textbf{Une approche empirique des écarts premiers}\
+	
+	\large Grammaire normalisée, modèle Markovien et observations numériques
+}
+
+\author{Michel Monfette  mycmon@gmail.com  (Quebec, Canada)}
+\date{Janvier 2026}
+
+\begin{document}
+	
+
+	
+	\begin{abstract}
+		Ce document présente une approche empirique et intuitive pour analyser les écarts entre nombres premiers.
+		En normalisant les écarts par $\log(p)$, on observe une structure stable qui peut être discrétisée en une grammaire symbolique.
+		Cette grammaire, associée a un modèle Markovien simple, permet de générer des écarts simulés qui reproduisent la texture locale des écarts premiers.
+		Les simulations montrent un taux de réussite d'environ 30--41\%, soit environ 4 fois mieux que le hasard dans l'intervalle 1--2 millions.
+	\end{abstract}
+	
+	\section{Introduction}
+	
+	L’idée initiale provient d'une intuition géométrique simple : les nombres premiers au-delà de 5 n'occupent que 8 positions possibles modulo 30.
+	Cette structure a inspire une représentation mentale sous forme de cube $3 \times 3 \times 3$, ou seules certaines positions sont autorisées.
+	
+	A partir de cette intuition, une observation empirique a été faite : les écarts entre nombres premiers, une fois normalises, semblent suivre des motifs répétitifs et stables.
+	
+	\section{Normalisation des écarts}
+	
+	Pour un nombre premier $p_n$, on définit :
+	
+	
+	\[
+	\Delta_n = p_{n+1} - p_n,
+	\qquad
+	g_n = \frac{\Delta_n}{\log(p_n)}.
+	\]
+	
+	
+	
+	Cette normalisation rend les écarts comparables sur de grands intervalles.
+	Les valeurs $g_n$ se regroupent naturellement en classes.
+	
+	\section{Construction d'une grammaire}
+	
+	Les valeurs normalisées sont discrétisées en symboles :
+	
+	\begin{itemize}
+		\item a : écart tres serre
+		\item b : écart serre
+		\item c : écart typique
+		\item d : écart large
+	\end{itemize}
+	
+	Les motifs les plus frequents observes sont :
+	
+	\subsection*{Bigrams}
+	bb, ab, ba, bc, cb, aa, ca
+	
+	\subsection*{Trigrams}
+	bbb, bba, bab, abb, bcb, bbc
+	
+	\subsection*{Tetragrammes}
+	bbbb, bbab, bcbb, bbba, cbba, abbb
+	
+	Ces motifs sont stables sur plusieurs intervalles : 1--2000, 20k--50k, 1M--2M.
+	
+	\section{Modèle Markovien}
+	
+	A partir des bigrams, on construit une matrice de transition :
+	
+	
+	\[
+	P(s_{n+1} \mid s_n).
+	\]
+	
+	
+	
+	Cette matrice est stable et permet de générer des séquences symboliques réalistes.
+	Chaque symbole est ensuite associe a une valeur typique de $g$, ce qui permet de reconstruire des écarts simulés.
+	
+	\section{Filtrage arithmétique}
+	
+	Pour rendre la simulation plus réaliste :
+	
+	\subsection*{Résidus modulo 30}
+	Seuls les résidus :
+	
+	
+	\[
+	1,7,11,13,17,19,23,29
+	\]
+	
+	
+	sont autorises.
+	
+	\subsection*{Filtre anti-multiples}
+	Les entiers divisibles par :
+	
+	
+	\[
+	7, 11, 13, 17, 19, 23, 29
+	\]
+	
+	
+	sont élimines.
+	
+	\section{Résultats expérimentaux}
+	
+	Sur l'intervalle 1--2 millions, avec 100 valeurs simulées :
+	
+	\begin{itemize}
+		\item 41\% des valeurs simulées sont des nombres premiers
+		\item densité réelle : 7.24\%
+		\item performance relative : environ $4.1 \times$ le hasard
+	\end{itemize}
+	
+	\section{Comparaison avec le modèle de Granville}
+	
+	Le modèle de Granville prédit :
+	
+	
+	\[
+	P_{\text{Granville}}(n) \approx \frac{1.2}{\ln(n)} \approx 7\%.
+	\]
+	
+	
+	
+	\begin{center}
+		\begin{tabular}{l c}
+			\toprule
+			Modèle & Résultat \\
+			\midrule
+			Grammaire normalisée & 41\% \\
+			Granville & 7\% \\
+			Hasard & 7\% \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+	\section{Conclusion}
+	
+	Cette approche ne constitue pas une théorie, mais une structure empirique stable.
+	Elle propose une nouvelle manière de regarder les écarts premiers : non pas comme une suite chaotique, mais comme un langage symbolique avec des motifs répétitifs.
+	Ce document vise simplement a partager cette observation avec la communauté mathématique.
+	
+\end{document}
