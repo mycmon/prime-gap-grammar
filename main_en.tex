@@ -1,0 +1,192 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{booktabs}
+
+\geometry{margin=1in}
+\setstretch{1.2}
+
+\title{
+	A Symbolic Grammar for Normalized Prime Gaps:\\
+	An Empirical Markov Model
+}
+
+\author{Michel Monfette mycmon@gmail.com (Quebec, Canada)}
+\date{January 2026}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{abstract}
+		This short note presents an empirical structure observed in normalized prime gaps.
+		After normalizing gaps by $\log(p)$, the resulting values cluster into stable ranges that can be discretized into a small symbolic alphabet.
+		The frequencies of bigrams and trigrams in this symbolic sequence remain stable across large intervals.
+		A simple first-order Markov model is constructed from these motifs.
+		Combined with elementary arithmetic filters (mod 30 residues and removal of small prime multiples), the model generates simulated values that match actual prime gaps significantly better than random baselines.
+		This work does not propose a theory of primes; it simply documents an empirical structure that may be of independent interest.
+	\end{abstract}
+	
+	\section{Introduction}
+	
+	Prime gaps have been studied extensively from analytic and probabilistic perspectives.
+	This work explores them from a different angle: symbolic discretization.
+	The idea originated from a geometric intuition: primes greater than 5 occupy only eight residue classes modulo 30.
+	This suggested that normalized prime gaps might exhibit stable symbolic patterns.
+	
+	The goal of this note is to describe this empirical structure and share it with the mathematical community.
+	
+	\section{Normalization of Prime Gaps}
+	
+	For consecutive primes $p_n$ and $p_{n+1}$, define the gap:
+	
+	
+	\[
+	\Delta_n = p_{n+1} - p_n.
+	\]
+	
+	
+	
+	Normalize it using:
+	
+	
+	\[
+	g_n = \frac{\Delta_n}{\log(p_n)}.
+	\]
+	
+	
+	
+	This normalization makes gaps comparable across large intervals.
+	The values $g_n$ tend to cluster into a small number of ranges.
+	
+	\section{Symbolic Grammar}
+	
+	The normalized values are discretized into four symbols:
+	
+	\begin{itemize}
+		\item a: very small gap
+		\item b: small gap
+		\item c: typical gap
+		\item d: large gap
+	\end{itemize}
+	
+	Across multiple intervals (1--2000, 20k--50k, 1M--2M), the most frequent motifs are:
+	
+	\subsection*{Bigrams}
+	
+	
+	\[
+	bb,\ ab,\ ba,\ bc,\ cb,\ aa,\ ca
+	\]
+	
+	
+	
+	\subsection*{Trigrams}
+	
+	
+	\[
+	bbb,\ bba,\ bab,\ abb,\ bcb,\ bbc
+	\]
+	
+	
+	
+	\subsection*{Tetragrams}
+	
+	
+	\[
+	bbbb,\ bbab,\ bcbb,\ bbba,\ cbba,\ abbb
+	\]
+	
+	
+	
+	These motifs remain stable across scales, suggesting a symbolic structure.
+	
+	\section{Markov Model}
+	
+	A first-order Markov chain is built from bigram frequencies:
+	
+	
+	\[
+	P(s_{n+1} \mid s_n).
+	\]
+	
+	
+	
+	Each symbol corresponds to a typical normalized gap value.
+	Simulated sequences of symbols can be converted back into numerical gaps.
+	
+	\section{Arithmetic Filters}
+	
+	Two simple filters improve realism:
+	
+	\subsection*{Allowed residues modulo 30}
+	Only the residues
+	
+	
+	\[
+	1,\ 7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29
+	\]
+	
+	
+	are allowed.
+	
+	\subsection*{Small-prime filter}
+	Numbers divisible by
+	
+	
+	\[
+	7,\ 11,\ 13,\ 17,\ 19,\ 23,\ 29
+	\]
+	
+	
+	are rejected.
+	
+	These filters remove obvious composites.
+	
+	\section{Numerical Observations}
+	
+	In the interval $1$--$2$ million, with 100 simulated values:
+	
+	\begin{itemize}
+		\item 30--41\% of simulated values are actual primes
+		\item true density: 7.24\%
+		\item performance: approximately $4.1 \times$ random
+	\end{itemize}
+	
+	\section{Comparison with Granville}
+	
+	Granville's model predicts:
+	
+	
+	\[
+	P(n) \approx \frac{1.2}{\ln(n)} \approx 7\%.
+	\]
+	
+	
+	
+	\begin{center}
+		\begin{tabular}{l c}
+			\toprule
+			Model & Result \\
+			\midrule
+			Symbolic grammar & 30--41\% \\
+			Granville & $\approx 7\%$ \\
+			Random baseline & $\approx 7\%$ \\
+			\bottomrule
+		\end{tabular}
+	\end{center}
+	
+	The symbolic model captures local motifs that Granville's global model does not attempt to describe.
+	
+	\section{Conclusion}
+	
+	This work does not propose a theory of prime numbers.
+	It documents an empirical symbolic structure that appears stable across large intervals.
+	The goal is simply to share this observation with the mathematical community so that the idea is not lost and may inspire further exploration.
+	
+\end{document}
