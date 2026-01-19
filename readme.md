@@ -44,11 +44,21 @@ Granville prediction: ~7%
 
 
 ## Document
-The folder paper/ contains a short explanatory document (LaTeX + PDF).
+This paper contains a short explanatory document (LaTeX + PDF).
+
+## importance de la methode_fr_en
+This paper contains a Geometric Grammar of Prime Gaps
+Symbolic Analysis, Markov Structure, and Modulo 30 Dynamics (LaTeX + PDF).
+
+## main_en
+This paper presents an empirical study  (LaTeX + PDF).
+
+
+## Étude de la grammaire Universelle des Écarts Premier
+This paper contains an Introduction et Methodology in Frnech  (LaTeX + PDF).
 
 ## Purpose
 This project is exploratory.
-It presents an empirical structure observed in prime gaps and shares it with the mathematical community for discussion and further investigation.
-
+It presents an empirical structure observed in prime gaps and shares it with the mathematical community for discussion and further investigation. 
 
 
