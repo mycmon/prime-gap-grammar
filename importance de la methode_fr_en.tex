@@ -1,0 +1,212 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{%
+	Grammaire géométrique des écarts premiers \\
+	\large Analyse symbolique, structure markovienne et dynamique modulo 30 \\
+	\vspace{0.5cm}
+	\textit{Geometric Grammar of Prime Gaps} \\
+	\large Symbolic Analysis, Markov Structure, and Modulo 30 Dynamics
+}
+\author{Michel Monfette mycmon@gmail.com}
+\date{2026}
+
+\begin{document}
+	
+	\maketitle
+	
+	% --------------------------------------------------------------------
+	\begin{abstract}
+		\textbf{Résumé (FR).}  
+		Cette étude propose une approche géométrique et symbolique des écarts entre nombres premiers. 
+		En normalisant les écarts par la fonction logarithme, en les représentant dans un espace angulaire modulo~30 
+		et en les discrétisant en un alphabet fini, il devient possible de construire une grammaire markovienne 
+		révélant des régularités profondes et stables à travers plusieurs échelles numériques.
+		
+		\medskip
+		\textbf{Abstract (EN).}  
+		This study introduces a geometric and symbolic approach to the analysis of gaps between consecutive prime numbers. 
+		By normalizing prime gaps using the logarithmic function, representing them in an angular space modulo~30, 
+		and discretizing them into a finite alphabet, it becomes possible to construct a Markovian grammar that reveals 
+		deep and persistent regularities across multiple numerical scales.
+	\end{abstract}
+	
+	% ============================================================
+	% ======================= VERSION FR ==========================
+	% ============================================================
+	
+	\section*{Version française}
+	
+	\section{Importance mathématique de la grammaire}
+	
+	La grammaire géométrique des écarts premiers constitue un objet mathématique nouveau. 
+	La normalisation logarithmique
+	
+	
+	\[
+	g_n = \frac{p_{n+1} - p_n}{\log(p_n)}
+	\]
+	
+	
+	révèle une stationnarité remarquable des écarts à travers plusieurs intervalles. 
+	Cette stationnarité permet de discrétiser les écarts en un alphabet fini et de construire une grammaire empirique.  
+	L'analyse des transitions montre une structure markovienne stable, indiquant que les écarts premiers ne sont pas aléatoires.
+	
+	\section{Contribution scientifique}
+	
+	\begin{itemize}
+		\item Introduction d'une normalisation géométrique stationnaire.
+		\item Construction d'un alphabet symbolique pour les écarts.
+		\item Mise en évidence d'une structure markovienne stable.
+		\item Découverte d'asymétries modulo~10 et modulo~30.
+		\item Développement d'un cadre géométrique unifié.
+		\item Création d'un laboratoire logiciel reproductible.
+	\end{itemize}
+	
+	\section{Méthodologie}
+	
+	\subsection{Extraction des écarts}
+	Les écarts sont définis par
+	
+	
+	\[
+	A_n = p_{n+1} - p_n.
+	\]
+	
+	
+	
+	\subsection{Normalisation logarithmique}
+	Chaque écart est normalisé par
+	
+	
+	\[
+	g_n = \frac{A_n}{\log(p_n)}.
+	\]
+	
+	
+	
+	\subsection{Discrétisation symbolique}
+	Les valeurs normalisées sont classées dans un alphabet discret.
+	
+	\subsection{Dictionnaires markoviens}
+	Deux modèles sont construits : global et conditionné modulo~10.
+	
+	\subsection{Analyse géométrique modulo 30}
+	Les résidus admissibles modulo~30 sont associés à huit directions angulaires.
+	
+	\subsection{Analyse des motifs}
+	Les motifs symboliques de longueur 2, 3 et 4 sont extraits.
+	
+	\subsection{Cohérence}
+	La cohérence entre modèles est mesurée par comparaison des matrices de transition.
+	
+	\section{Résultats principaux}
+	
+	\begin{itemize}
+		\item Stationnarité des hauteurs normalisées.
+		\item Stabilité des proportions symboliques.
+		\item Structure markovienne d'ordre~1.
+		\item Asymétries arithmétiques persistantes.
+		\item Structure géométrique non uniforme.
+	\end{itemize}
+	
+	\section{Conclusion générale}
+	
+	Cette étude révèle une structure interne stable dans la dynamique des écarts premiers. 
+	La combinaison de la normalisation logarithmique, de la géométrie modulo~30, 
+	de l'analyse symbolique et des modèles markoviens montre que les écarts premiers 
+	suivent une grammaire cohérente et persistante.  
+	Cette approche ouvre une nouvelle voie pour l'étude des nombres premiers.
+	
+	% ============================================================
+	% ======================= VERSION EN ==========================
+	% ============================================================
+	
+	\newpage
+	\section*{English Version}
+	
+	\section{Mathematical Importance of the Grammar}
+	
+	The geometric grammar of prime gaps constitutes a new mathematical object.  
+	The logarithmic normalization
+	
+	
+	\[
+	g_n = \frac{p_{n+1} - p_n}{\log(p_n)}
+	\]
+	
+	
+	reveals a remarkable stationarity of normalized gaps across several intervals.  
+	This stationarity enables discretization into a finite alphabet and the construction of an empirical grammar.  
+	The transition analysis shows a stable Markov structure, indicating that prime gaps are not random.
+	
+	\section{Scientific Contributions}
+	
+	\begin{itemize}
+		\item Introduction of a stationary geometric normalization.
+		\item Construction of a symbolic alphabet for prime gaps.
+		\item Identification of a stable Markov structure.
+		\item Discovery of modulo~10 and modulo~30 asymmetries.
+		\item Development of a unified geometric framework.
+		\item Creation of a reproducible software laboratory.
+	\end{itemize}
+	
+	\section{Methodology}
+	
+	\subsection{Extraction of gaps}
+	Gaps are defined by
+	
+	
+	\[
+	A_n = p_{n+1} - p_n.
+	\]
+	
+	
+	
+	\subsection{Logarithmic normalization}
+	Each gap is normalized using
+	
+	
+	\[
+	g_n = \frac{A_n}{\log(p_n)}.
+	\]
+	
+	
+	
+	\subsection{Symbolic discretization}
+	Normalized values are classified into a discrete alphabet.
+	
+	\subsection{Markov dictionaries}
+	Two models are constructed: global and modulo~10 conditioned.
+	
+	\subsection{Geometric analysis modulo 30}
+	Admissible residues modulo~30 are mapped to eight angular directions.
+	
+	\subsection{Pattern analysis}
+	Symbolic patterns of length 2, 3, and 4 are extracted.
+	
+	\subsection{Coherence}
+	Coherence between models is measured by comparing transition matrices.
+	
+	\section{Main Results}
+	
+	\begin{itemize}
+		\item Stationarity of normalized heights.
+		\item Stability of symbolic proportions.
+		\item First-order Markov structure.
+		\item Persistent arithmetic asymmetries.
+		\item Non-uniform geometric structure.
+	\end{itemize}
+	
+	\section{General Conclusion}
+	
+	This study reveals a stable internal structure in the dynamics of prime gaps.  
+	The combination of logarithmic normalization, modulo~30 geometry, symbolic analysis, 
+	and Markov models shows that prime gaps follow a coherent and persistent grammar.  
+	This approach opens a new direction for the study of prime numbers.
+	
+\end{document}
